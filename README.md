@@ -11,8 +11,7 @@ This repository contains a PyTorch implementation of BQN.
 
 ## Dataset
 
-We provide the ABIDE dataset and placed it in the `/dataset` directory. Please place all datasets in the `/dataset`
-directory and update the corresponding paths in `parse.py`.
+Please place all datasets in the `/dataset` directory and update the corresponding paths in `parse.py`.
 
 ## Usage
 
