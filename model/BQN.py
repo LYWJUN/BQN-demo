@@ -16,11 +16,10 @@ class quadratic_perceptron(nn.Module):
         self.dropout = nn.Dropout(dropout)
 
     def forward(self, feature: torch.tensor, corr: torch.tensor):
-        feature_R = self.MLP_R(feature)
-        feature_G = self.MLP_G(feature)
-        feature_B = torch.pow(feature, 2)
-        feature_B = self.MLP_B(feature_B)
-        x = feature_R * feature_G + feature_B + feature
+        feature_temp = self.MLP_R(corr)
+        feature_1 = feature * feature_temp
+        feature_2 = self.MLP_G(feature * feature)
+        x = feature_1 + feature_2
 
         return self.activation(x)
 
