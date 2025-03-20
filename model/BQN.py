@@ -2,12 +2,12 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import sys
-sys.path.append("/home/ywl/GNN-codes/BrainNetwork")
-from Qua_2.model.cluster_pooling import DEC
+sys.path.append("your project path")
+from BQN_Demo.model.cluster_pooling import DEC
 
 
 class quadratic_perceptron(nn.Module):
-    def __init__(self, hidden_in, hidden_out, activation, dropout=0.1):
+    def __init__(self, hidden_in, hidden_out, activation, dropout=0.):
         super().__init__()
         self.MLP_R = nn.Linear(hidden_in, hidden_out, bias=True)
         self.MLP_G = nn.Linear(hidden_in, hidden_out, bias=True)
@@ -21,7 +21,7 @@ class quadratic_perceptron(nn.Module):
         feature_2 = self.MLP_G(feature * feature)
         x = feature_1 + feature_2
 
-        return self.activation(x)
+        return self.dropout(self.activation(x))
 
 
 class Quadratic_BN(nn.Module):
@@ -73,7 +73,7 @@ class Quadratic_BN(nn.Module):
                 corr: torch.tensor):
         bz, node_sz, corr_sz = corr.shape
 
-        topo = corr
+        topo = corr.clone()
         for qb_layer in self.qp_layers:
             topo = qb_layer(topo, corr)
 
