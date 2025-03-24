@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import sys
-sys.path.append("your project path")
+# sys.path.append("/home/ywl/GNN-codes/BrainNetwork")
 from BQN_Demo.model.cluster_pooling import DEC
 
 
