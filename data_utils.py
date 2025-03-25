@@ -15,7 +15,7 @@ def load_data(args):
         data_path = args.data_dir + '/' + args.dataset.lower() + '.npy'
         data = np.load(data_path, allow_pickle=True).item()
         data_timeseries = data['timeseires']  # [1009, 200, 100]
-        data_label = data['label']  # [1009,]
+        data_label = data['label']  # [1009,], 0:control, 1:patient
         data_pearson = data['corr']  # [1009, 200, 200]
         site = data['site']
 
