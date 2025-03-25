@@ -20,7 +20,7 @@ class quadratic_perceptron(nn.Module):
         feature_2 = self.MLP_G(feature * feature)
         x = feature_1 + feature_2
 
-        return self.dropout(self.activation(x))
+        return self.dropout(self.activation(x)) 
 
 
 class Quadratic_BN(nn.Module):
