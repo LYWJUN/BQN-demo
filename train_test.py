@@ -72,7 +72,7 @@ def val_test(model, args, val_loader, test_loader):
     val_acc = np.mean(val_acc_list)
     val_roc = roc_auc_score(labels, result)
 
-    # test (just for experiments result show not use in def test)
+    # test
     test_loss = 0
     test_acc_list = []
     result = []
