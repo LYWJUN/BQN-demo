@@ -5,10 +5,10 @@ def get_args():
     """ create parser """
     parser = argparse.ArgumentParser(description='BQN hyper parameters')
     parser.add_argument('--device', type=int, default=0, help="cuda:0")
-    parser.add_argument('--root_path', type=str, default="/BQN_Demo")
-    parser.add_argument('--data_dir', type=str, default="/BQN_Demo/dataset")
+    parser.add_argument('--root_path', type=str, default="/home/ywl/GNN-codes/BrainNetwork/BQN_Demo")
+    parser.add_argument('--data_dir', type=str, default="/home/ywl/Load_datasets/Brain_data/FMRI")
 
-    parser.add_argument('--dataset', default='ABIDE', help='brain dataset')
+    parser.add_argument('--dataset', default='ABIDE', help='brain dataset',choices=['ABIDE', 'ADNI', 'ADHD', 'PPMI'])
     parser.add_argument('--seed', type=int, default=42)
     parser.add_argument('--runs', default=5, help='repeat time')
     parser.add_argument('--epochs', type=int, default=200)
